@@ -8,7 +8,6 @@ struct MemoryGame<CardContent> {
     var cards: Array<Card>
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
-//        cards = Array<Card>()
         cards = []
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)

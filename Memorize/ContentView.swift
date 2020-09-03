@@ -13,17 +13,19 @@ struct ContentView: View {
                 CardView(card: card).onTapGesture{
                     self.viewModel.choose(card: card)
                 }
+                .aspectRatio(2 / 3, contentMode: .fit)
             }
         }
             .padding()
             .foregroundColor(Color.orange)
-            .font(Font.largeTitle)
+            .font(viewModel.cards.count < 10  ? Font.largeTitle : Font.callout)
     }
     
 }
 
 
 struct CardView: View {
+    
     var card: MemoryGame<String>.Card
     
     var body: some View {
@@ -41,6 +43,7 @@ struct CardView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView(viewModel: EmojiMemoryGame())
     }
